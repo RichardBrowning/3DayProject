@@ -2,8 +2,8 @@ extends KinematicBody
 
 const GRAVITY = -.2;
 const MOVE_SPEED = 3.5;
-onready var target_position = get_parent().get_node("CollisionArea").transform.origin;
-onready var collision_area = get_parent().get_node("CollisionArea");
+onready var target_position = get_parent().get_node("Area").transform.origin;
+onready var collision_area = get_parent().get_node("Area");
 
 # Declare member variables here. Examples:
 # var a = 2
