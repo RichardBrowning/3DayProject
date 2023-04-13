@@ -59,8 +59,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.362088, 0 )
 
 [node name="Camera" type="Camera" parent="CharBody/Neck"]
 
+[node name="Surroundering" type="Position3D" parent="CharBody"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.1073, 0.0286007 )
+
 [node name="Enemy" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91713, -6.32922 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640971, -6.32922 )
 script = ExtResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Enemy"]
