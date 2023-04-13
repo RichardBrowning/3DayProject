@@ -1,0 +1,18 @@
+Create some type of masterpiece
+
+Overview
+
+Throughout the semester you have learned quite a bit about how 3D games are created. For the final project, you will apply these skills to create an original game or application demonstrating your newfound abilities.
+
+Requirements:
+
+You may work individually or as a group
+Create a substantially original work
+Lower-level programming skills are expected
+Unless otherwise approved, no Unity, or Unreal projects
+Other libraries are welcome, especially if they are open-source
+The project should be a game or library
+It should reflect the skill level of a 400-level CS course
+All members of the group should turn in documentation describing their contribution to the project
+Also, please indicate which group member has the source files for us to view
+Be sure to have adequate documentation!
