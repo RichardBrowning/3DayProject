@@ -59,11 +59,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.362088, 0 )
 
 [node name="Camera" type="Camera" parent="CharBody/Neck"]
 
-[node name="CollisionArea" type="Position3D" parent="CharBody"]
-transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, -0.1073, 0.0286007 )
-
 [node name="Enemy" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.738159, -8.60215 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91713, -6.32922 )
 script = ExtResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Enemy"]
@@ -73,3 +70,6 @@ mesh = SubResource( 8 )
 [node name="CollisionShape" type="CollisionShape" parent="Enemy"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 shape = SubResource( 9 )
+
+[node name="CollisionArea" type="Position3D" parent="."]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0.765028, 8.32274 )
