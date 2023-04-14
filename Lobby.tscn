@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://limpopo_golf_course_2k.hdr" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://Level.gd" type="Script" id=3]
 [ext_resource path="res://Enemy.gd" type="Script" id=4]
-[ext_resource path="res://Blender Assets/elevator.glb" type="PackedScene" id=5]
 
 [sub_resource type="PanoramaSky" id=5]
 panorama = ExtResource( 1 )
@@ -89,6 +88,3 @@ shape = SubResource( 2 )
 [node name="FloorMesh" type="MeshInstance" parent="1stFloor"]
 mesh = SubResource( 1 )
 skeleton = NodePath("../../2ndFloor/FloorMesh")
-
-[node name="elevator" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.112448, -1.71455, 11.0545 )
