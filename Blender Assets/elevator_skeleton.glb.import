@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/elevator.glb-5458182fbb57ed911c73f27b2041a691.scn"
+path="res://.import/elevator_skeleton.glb-83b1abbafc8c543abf26ef4db8aaa822.scn"
 
 [deps]
 
-source_file="res://Blender Assets/elevator.glb"
-dest_files=[ "res://.import/elevator.glb-5458182fbb57ed911c73f27b2041a691.scn" ]
+source_file="res://Blender Assets/elevator_skeleton.glb"
+dest_files=[ "res://.import/elevator_skeleton.glb-83b1abbafc8c543abf26ef4db8aaa822.scn" ]
 
 [params]
 
