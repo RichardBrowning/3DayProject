@@ -9,10 +9,8 @@ onready var dooropen_animation = get_node("elevator/AnimationPlayer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	dooropen_animation.play("Door0Opens")
-	dooropen_animation.play("Door1Opens")
-	
-	
+	#dooropen_animation.play("DoorOpens")
+	pass
 
 func _process(delta):
 	pass
