@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://Interactable/Interactable.gd"
+"path": "res://Interactable/InteractableClass.gd"
 } ]
 _global_script_class_icons={
 "Interactable": ""

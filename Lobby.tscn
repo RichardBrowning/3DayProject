@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://limpopo_golf_course_2k.hdr" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -13,8 +13,7 @@
 [ext_resource path="res://Blender Assets/METAL_SCRATCHED.material" type="Material" id=11]
 [ext_resource path="res://Blender Assets/METAL_SCRATCHED_bolt.material" type="Material" id=12]
 [ext_resource path="res://assets/focus.png" type="Texture" id=13]
-[ext_resource path="res://crosshair.gd" type="Script" id=14]
-[ext_resource path="res://Interaction.gd" type="Script" id=15]
+[ext_resource path="res://InteractionRay.gd" type="Script" id=15]
 
 [sub_resource type="PanoramaSky" id=5]
 panorama = ExtResource( 1 )
@@ -472,7 +471,7 @@ shape = SubResource( 28 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharBody/Neck/Camera/hotWeapon"]
 anims/Fire = SubResource( 26 )
 
-[node name="TextureRect" type="TextureRect" parent="CharBody/Neck/Camera"]
+[node name="crosshair" type="TextureRect" parent="CharBody/Neck/Camera"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -482,11 +481,14 @@ margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 512, 300 )
+mouse_filter = 2
+mouse_default_cursor_shape = 3
 texture = ExtResource( 13 )
 stretch_mode = 4
-script = ExtResource( 14 )
 
 [node name="InteractionRayCast" type="RayCast" parent="CharBody/Neck/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -4 )
 script = ExtResource( 15 )
 
 [node name="Enemy" type="KinematicBody" parent="."]
@@ -583,13 +585,13 @@ shape = SubResource( 23 )
 anims/DoorCloses = SubResource( 19 )
 anims/DoorOpens = SubResource( 22 )
 
-[node name="Elevator Buttons001" type="Spatial" parent="."]
+[node name="Elevator Button Outside" type="Spatial" parent="."]
 transform = Transform( 1.88745e-07, -2.5, -1.09278e-07, 0, -1.09278e-07, 2.5, -2.5, -1.88745e-07, -8.25029e-15, 9.8, -1.252, 1.31173 )
 
-[node name="METAL PLATE001" type="MeshInstance" parent="Elevator Buttons001"]
+[node name="METAL PLATE" type="MeshInstance" parent="Elevator Button Outside"]
 transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 0.010083, 0.00835681, 0.00086988 )
 mesh = SubResource( 30 )
 
-[node name="BUTTON BELL001" type="MeshInstance" parent="Elevator Buttons001/METAL PLATE001"]
+[node name="BUTTON BELL" type="MeshInstance" parent="Elevator Button Outside/METAL PLATE"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000329226, 0.00120045, 0 )
 mesh = SubResource( 31 )

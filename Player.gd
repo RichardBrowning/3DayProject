@@ -16,7 +16,7 @@ func _ready():
 	weapon_mesh.visible = false;
 	pass # Replace with function body.
 
-func _input(event: InputEvent):
+func _unhandled_input(event: InputEvent):
 	# if mouse clicked on the window, start capturing the mouse 
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
