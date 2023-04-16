@@ -42,7 +42,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY;
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if has_weapon && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			weapon_animation.play("Fire");
+			fire_weapon();
 	
 	
 	var input_dir = Input.get_vector( "ui_left", "ui_right", "ui_up", "ui_down");
@@ -56,3 +56,7 @@ func _physics_process(delta):
 		
 	# mouse input
 	move_and_slide(velocity, Vector3.UP);
+
+func fire_weapon():
+	weapon_animation.play("Fire");
+	pass

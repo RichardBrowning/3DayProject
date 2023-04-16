@@ -18,5 +18,5 @@ func get_prompt():
 
 func interact():
 	player.has_weapon = true;
-#	self.visible = false;
-	translate(Vector3(0, 0, 0.5))
+	self.visible = false;
+	translate(Vector3(0, 0, 0.15))
