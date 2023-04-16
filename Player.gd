@@ -29,7 +29,7 @@ func _unhandled_input(event: InputEvent):
 			camera.rotate_x(-event.relative.y * 0.01);
 			camera.rotation.x = clamp(camera.rotation.x, -0.53, 1.06);
 
-
+#
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#once acquired weapon, make weapon visible
@@ -42,6 +42,7 @@ func _physics_process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if has_weapon && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			weapon_animation.play("Fire");
+	
 	
 	var input_dir = Input.get_vector( "ui_left", "ui_right", "ui_up", "ui_down");
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
