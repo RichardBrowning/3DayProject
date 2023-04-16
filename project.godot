@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://Interactable/Interactable.gd"
+}, {
+"base": "RigidBody",
+"class": "Tripper",
+"language": "GDScript",
+"path": "res://Trippers/Tripper.gd"
 } ]
 _global_script_class_icons={
-"Interactable": ""
+"Interactable": "",
+"Tripper": ""
 }
 
 [application]

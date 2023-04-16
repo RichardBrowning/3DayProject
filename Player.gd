@@ -11,11 +11,12 @@ onready var camera = $Neck/Camera;
 onready var weapon_mesh = $Neck/Camera/hotWeapon/Armature/Skeleton/Shotgun
 onready var weapon_animation = $Neck/Camera/hotWeapon/AnimationPlayer;
 export var has_weapon = false;
+var bulletInstance;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	weapon_mesh.visible = false;
-	pass # Replace with function body.
+	bulletInstance = preload("res://Bullet.tscn")
 
 func _unhandled_input(event: InputEvent):
 	# if mouse clicked on the window, start capturing the mouse 
