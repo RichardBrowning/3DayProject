@@ -4,13 +4,14 @@ const SPEED = 3.0;
 const JUMP_VELOCITY = 4.5;
 const GRAVITY = -.2;
 
-var has_weapon = false;
 var velocity = Vector3.ZERO;
 onready var neck = $Neck;
 onready var camera = $Neck/Camera;
 #onready var weapon = $Neck/Camera/hotWeapon;
 onready var weapon_mesh = $Neck/Camera/hotWeapon/Armature/Skeleton/Shotgun
 onready var weapon_animation = $Neck/Camera/hotWeapon/AnimationPlayer;
+export var has_weapon = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	weapon_mesh.visible = false;
@@ -27,7 +28,7 @@ func _unhandled_input(event: InputEvent):
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * 0.01);
 			camera.rotate_x(-event.relative.y * 0.01);
-			camera.rotation.x = clamp(camera.rotation.x, -0.53, 1.06);
+			camera.rotation.x = clamp(camera.rotation.x, -0.894, 1.06);
 
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.
