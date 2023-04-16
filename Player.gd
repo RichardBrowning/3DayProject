@@ -64,6 +64,11 @@ func _physics_process(delta):
 
 func fire_weapon():
 	weapon_ready = false;
+	#create bullet
+	var bullet = bulletInstance.instance()
+	owner.add_child(bullet)
+	bullet.transform = $Neck/Camera/hotWeapon.global_transform
+	bullet.velocity = bullet.transform.basis.x * bullet.bullet_speed
 	weapon_animation.play("Fire");
 	weapon_sound.play(0);
 	yield(get_tree().create_timer(weapon_animation.get_animation("Fire").length), "timeout");

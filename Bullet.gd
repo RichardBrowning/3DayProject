@@ -8,8 +8,6 @@ func _physics_process(delta):
 	velocity += gravity * delta
 	
 	move_and_collide(velocity * delta)
-	
-	# remove object from scene when it falls down
 	if translation.y < -3:
 		queue_free()
 
