@@ -8,10 +8,13 @@ const GRAVITY = -.2;
 var velocity = Vector3.ZERO;
 onready var neck = $Neck;
 onready var camera = $Neck/Camera;
-#onready var weapon = $Neck/Camera/hotWeapon;
+
 onready var weapon_mesh = $Neck/Camera/hotWeapon/Armature/Skeleton/Shotgun
 onready var weapon_animation = $Neck/Camera/hotWeapon/AnimationPlayer;
+onready var weapon_sound = $Neck/Camera/hotWeapon/Pew
 export var has_weapon = false;
+var weapon_ready = true;
+
 var bulletInstance;
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +46,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") && is_on_floor():
 		velocity.y = JUMP_VELOCITY;
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		if has_weapon && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if has_weapon && weapon_ready && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			fire_weapon();
 	
 	
@@ -60,5 +63,9 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector3.UP);
 
 func fire_weapon():
+	weapon_ready = false;
 	weapon_animation.play("Fire");
-	pass
+	weapon_sound.play(0);
+	yield(get_tree().create_timer(weapon_animation.get_animation("Fire").length), "timeout");
+	weapon_sound.stop();
+	weapon_ready = true;
