@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 const SPEED = 3.0;
 const JUMP_VELOCITY = 4.5;

@@ -20,3 +20,4 @@ func interact():
 	player.has_weapon = true;
 	self.visible = false;
 	translate(Vector3(0, 0, 0.15))
+	get_parent().get_node("Enemy").isMoving = true;

@@ -23,4 +23,8 @@ func get_prompt():
 
 func interact():
 	if enabled:
+		if elevator.currentFloor == 1:
+			elevator_anim.play("GoingUp")
+			yield(get_tree().create_timer(elevator_anim.get_animation("GoingUp").length + 1), "timeout");
+			elevator.currentFloor = 2
 		elevator.toggle_door();
