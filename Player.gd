@@ -14,6 +14,8 @@ onready var weapon_animation = $Neck/Camera/hotWeapon/AnimationPlayer;
 onready var weapon_sound = $Neck/Camera/hotWeapon/Pew
 export var has_weapon = false;
 var weapon_ready = true;
+var weapon_aiming = false;
+var sprinting = false
 
 var bulletInstance;
 
@@ -48,16 +50,42 @@ func _physics_process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if has_weapon && weapon_ready && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			fire_weapon();
+	if has_weapon && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if Input.is_action_pressed("ui_aim"):
+			#set collision shape to disabled
+			$Neck/Camera/hotWeapon/Armature/Skeleton/Shotgun/StaticBody/CollisionShape.disabled = true;
+			#move the gun to aim
+			if weapon_aiming == false:
+				$Neck/Camera/hotWeapon.translate(Vector3(0.3, 0, 1.32));
+				print("aiming")
+				weapon_aiming = true;
+		if Input.is_action_just_released("ui_aim"):
+			#move the gun back
+			if weapon_aiming == true:
+				print("disengage")
+				$Neck/Camera/hotWeapon.translate(Vector3(-0.3, 0, -1.32));
+				weapon_aiming = false; 
+			#set collision shape to be enabled
+			$Neck/Camera/hotWeapon/Armature/Skeleton/Shotgun/StaticBody/CollisionShape.disabled = false;
 	
-	
+	if Input.is_action_pressed("dash"):
+		if sprinting == false:
+			sprinting = true;
+	if Input.is_action_just_released("dash"):
+		if sprinting == true:
+			sprinting = false;
+		
 	var input_dir = Input.get_vector( "ui_left", "ui_right", "ui_up", "ui_down");
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
+	var sp_buff = 1
+	if sprinting:
+		pass
 	if direction:
-		velocity.x = direction.x * SPEED;
-		velocity.z = direction.z * SPEED;
+		velocity.x = direction.x * SPEED * sp_buff;
+		velocity.z = direction.z * SPEED * sp_buff;
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED);
-		velocity.z = move_toward(velocity.z, 0, SPEED);
+		velocity.x = move_toward(velocity.x, 0, SPEED*sp_buff);
+		velocity.z = move_toward(velocity.z, 0, SPEED*sp_buff);
 		
 	# mouse input
 	move_and_slide(velocity, Vector3.UP);
@@ -67,8 +95,8 @@ func fire_weapon():
 	#create bullet
 	var bullet = bulletInstance.instance()
 	owner.add_child(bullet)
-	bullet.transform = $Neck/Camera/hotWeapon.global_transform
-	bullet.velocity = bullet.transform.basis.x * bullet.bullet_speed
+	bullet.global_transform = $Neck/Camera/hotWeapon/BulletSpawn.global_transform
+	bullet.velocity = -bullet.transform.basis.x * bullet.bullet_speed
 	weapon_animation.play("Fire");
 	weapon_sound.play(0);
 	yield(get_tree().create_timer(weapon_animation.get_animation("Fire").length), "timeout");

@@ -1,8 +1,8 @@
 extends KinematicBody
 
 var velocity = Vector3.ZERO
-var gravity = Vector3.DOWN
-var bullet_speed = 20
+var gravity = Vector3.DOWN * 0.1
+var bullet_speed = 50
 
 func _physics_process(delta):
 	velocity += gravity * delta
