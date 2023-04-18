@@ -44,3 +44,5 @@ WHen the player finishes the gameplay, this screen will be shown to the player. 
 ## Game Object Mechanism
 ### Player Mechanism
 Player node's tree structure:
+
+![image](resources/player_tree.png)
