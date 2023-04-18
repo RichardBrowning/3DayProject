@@ -12,4 +12,35 @@ The player will be able to control the character with the keyboard and mouse and
 
 ## Game Assets
 ### The Map
-The map contrains the hotel and some simplified architectures around it. There is several instances.
+The map contrains the hotel and some simplified architectures around it. 
+
+### Player
+Simplified player model. As the game is a first person shooter game, the player base mesh is a capsule shaped mesh. The player does not have animation. The player has a neck node attached, which provided a base for:
+
+#### Camera
+The camera is attached to the player's neck node, rotating with player's mouse input. On the horizontal direction, the camera's rotation changes player's direction of movement. 
+#### Weapon
+The weapon is a low-poly shotgun model with animation. It is disabled (invisible, ignores player input) until the player interacts with another interactable weapon model on the ground. 
+
+### Enemy
+The enemy is a ghost model with animation. It is invisible and unmoving until the player interacts with the interactable weapon model on the ground.
+
+### Flowers and flowerstands
+The flowers and flowerstands are regidbody models. They are used to decorate the map and assist player in beating the enemy.
+
+## UI
+### Main Menu
+The main menu only has two buttons, one for starting the game and one for exiting the game. The main menu has a 2d splash screen as the background image. The buttons are simple buttons with text and a background texture. The buttons are connected to the game's main scene and the exit function.
+
+### In game UI
+When player interacts with items, there are message prompts that tells them what the interactable does. The message prompt is a 2d label. The message prompt is a child node attached to the player's camera and always stays in rotation with the camera.
+
+### Game Over
+When the player dies, the game over screen will appear. The game over screen is a 2d label of a image I made, which is a blurred image of a red-lighted corridor in the hotel with the ghost in it with a message saying "You Died" in the front.
+
+### Game Complete
+WHen the player finishes the gameplay, this screen will be shown to the player. The screen is a 2d label with only two words "You Survived".
+
+## Game Object Mechanism
+### Player Mechanism
+Player node's tree structure:
