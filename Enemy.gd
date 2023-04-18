@@ -3,7 +3,7 @@ extends KinematicBody
 	#Return to Elevator, can still 
 
 const GRAVITY = -.2;
-const MOVE_SPEED = 1;
+const MOVE_SPEED = 3;
 
 onready var target_position = get_parent().get_node("TargetArea").transform.origin;
 onready var collision_area = get_parent().get_node("TargetArea");

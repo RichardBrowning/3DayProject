@@ -75,7 +75,7 @@ func _physics_process(delta):
 		if sprinting == true:
 			sprinting = false;
 		
-	var input_dir = Input.get_vector( "ui_up", "ui_down", "ui_right", "ui_left");
+	var input_dir = Input.get_vector( "ui_right", "ui_left", "ui_down", "ui_up");
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
 	var sp_buff = 1
 	if sprinting:
