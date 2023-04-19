@@ -35,7 +35,7 @@ func _unhandled_input(event: InputEvent):
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * 0.01);
 			camera.rotate_x(-event.relative.y * 0.01);
-			camera.rotation.x = clamp(camera.rotation.x, -0.894, 1.06);
+			camera.rotation.x = clamp(camera.rotation.x, -1.28, 1.06);
 
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.
