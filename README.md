@@ -57,7 +57,7 @@ The camera is connected to the viewpoint of the game. When user clicks on the wi
 As the child of the camera, the rotation of the weapon follows the camera, so does the direction of bullet spawn. The mouse right key is used to aim (by moving the weapon to the center of the camera scene) and the right mouse button is used to fire (spawn a bullet), whethered aimed or blind shoot. 
 
 ### Enemy Mechanism
-Player node's tree structure added after completion:
+Enemy node's tree structure added after completion:
 ![image](resources/enemy_tree.png)
 The enemy is a kinematic body with a script. Just like the player, It has a meshInstance and a collisionShape to achieve its physical properties. The enemy takes the shape of a clown, which is a model imported from mixamo.com. When the game is initialized, it is invisible and unmoving in one end of the building's corridor. When the player interacts and picks up the weapon, the enemy is set to visible and starts moving toward the location of the player's side of the corridor with a running animation. The enemy will stop moving when it reaches the player's side of the corridor if there is no collision alone the way. Enemy will stop moving and play a tripped-over animation if it collides with a specific class of object (Eg, Flower and flowerstand).
 
@@ -65,6 +65,8 @@ The enemy is a kinematic body with a script. Just like the player, It has a mesh
 The flower and flowerstand are rigidbody models. They are static bodies with meshInstances and collisionShapes. When the spawned bullets collided with them, they will reacts in a physicial manner (fall apart).When the enemy collides with the flower or its stand that fell on its way, the enemy will stop. The flower will be bumped when it collides with the enemy.
 
 ### The Elevator Mechanism
+![image](resources/elevator_tree.png)
+
 The elevator is a kinematic mesh with a script. It has two child nodes to build its physical properties: multiple meshInstances and collisionShapes. The elevator is a kinematic body. When the player interacts with the elevator, the elevator will open or close its door as well as move up and down.
 
 ## States and Transitions
