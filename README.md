@@ -58,7 +58,9 @@ As the child of the camera, the rotation of the weapon follows the camera, so do
 
 ### Enemy Mechanism
 Enemy node's tree structure added after completion:
+
 ![image](resources/enemy_tree.png)
+
 The enemy is a kinematic body with a script. Just like the player, It has a meshInstance and a collisionShape to achieve its physical properties. The enemy takes the shape of a clown, which is a model imported from mixamo.com. When the game is initialized, it is invisible and unmoving in one end of the building's corridor. When the player interacts and picks up the weapon, the enemy is set to visible and starts moving toward the location of the player's side of the corridor with a running animation. The enemy will stop moving when it reaches the player's side of the corridor if there is no collision alone the way. Enemy will stop moving and play a tripped-over animation if it collides with a specific class of object (Eg, Flower and flowerstand).
 
 #### Flower and Flowerstand Mechanism
