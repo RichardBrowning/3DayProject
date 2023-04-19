@@ -52,7 +52,7 @@ func _process(delta):
 					play_drop_health();
 					ghostAnimation.stop(true);
 				elif collision.collider is Bullet:
-					health -= 34;
+					health -= 1;
 				#assign the heath to indicator
 				health_indicator.text = String(health);
 				if health <= 0:
@@ -79,6 +79,6 @@ func play_light_effect():
 	get_parent().get_node("OceanviewHotel/MainHotel/Lights/SpotLight2").light_energy = 2.5
 
 func play_drop_health():
-	for i in range(100, 0, -1):
+	for i in range(100, -1, -1):
 		health_indicator.text = String(i);
 		yield(get_tree().create_timer(0.01), "timeout");
