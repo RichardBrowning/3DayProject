@@ -25,6 +25,13 @@ func _process(delta):
 func moveTowardPlayer(delta):
 	if isMoving:
 		if !inited:
+			get_parent().get_node("OceanviewHotel/MainHotel/Lights/FirstLight").light_energy = 0
+			yield(get_tree().create_timer(2), "timeout")
+			get_parent().get_node("OceanviewHotel/MainHotel/Lights/SpotLight1").light_energy = 2.5
+			yield(get_tree().create_timer(1.5), "timeout")
+			get_parent().get_node("OceanviewHotel/MainHotel/Lights/SpotLight3").light_energy = 2.5
+			yield(get_tree().create_timer(1.5), "timeout")
+			get_parent().get_node("OceanviewHotel/MainHotel/Lights/SpotLight2").light_energy = 2.5
 			ghstMesh.visible = true;
 			inited = true;
 		ghostAnimation.play("RunT");
