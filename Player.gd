@@ -15,12 +15,15 @@ onready var weapon_sound = $Neck/Camera/hotWeapon/Pew
 export var has_weapon = false;
 var weapon_ready = true;
 var weapon_aiming = false;
-var sprinting = false
+var sprinting = false;
+export var game_over = false;
+var in_game = false;
 
 var bulletInstance;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Neck/Camera/MainScreen.visible = true;
 	weapon_mesh.visible = false;
 	bulletInstance = preload("res://Bullet.tscn")
 
@@ -37,6 +40,15 @@ func _unhandled_input(event: InputEvent):
 			camera.rotate_x(-event.relative.y * 0.01);
 			camera.rotation.x = clamp(camera.rotation.x, -1.28, 1.06);
 
+func _input(event):
+	if !in_game:
+		if event.is_action_pressed("ui_accept"):
+			$Neck/Camera/MainScreen.visible = false;
+			in_game = true;
+	if game_over:
+		if event.is_action_pressed("ui_accept"):
+			get_tree().reload_current_scene();
+			$Neck/Camera/GameOver.visible = false;
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -102,3 +114,7 @@ func fire_weapon():
 	yield(get_tree().create_timer(weapon_animation.get_animation("Fire").length), "timeout");
 	weapon_sound.stop();
 	weapon_ready = true;
+
+
+func _process(delta):
+	pass

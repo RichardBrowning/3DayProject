@@ -7,14 +7,21 @@ onready var dest = null;
 # var b = "text"
 onready var dooropen_animation = get_node("elevator/AnimationPlayer")
 
+var game_started = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#dooropen_animation.play("DoorOpens")
 	pass
 
 func _process(delta):
+	# display the splash
+	
+	# if entered
+	
+	# if game started 
+		# if esc
 	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

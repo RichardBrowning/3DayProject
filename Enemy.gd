@@ -45,6 +45,9 @@ func _process(delta):
 			ghostAnimation.play("RunT");
 			var dir = (target_position - translation).normalized();
 			var collision = move_and_collide(dir * MOVE_SPEED * delta, infinite_initia);
+			if (translation.distance_to(target_position)) < 1:
+				get_parent().get_node("CharBody/Neck/Camera/GameOver").visible = true;
+				get_parent().get_node("CharBody").game_over = true;
 			if collision:
 				if collision.collider is Tripper:
 					infinite_initia = true;
@@ -66,6 +69,10 @@ func _process(delta):
 				yield(get_tree().create_timer(ghostAnimation.get_animation("FallT").length), "timeout");
 				ghostAnimation.stop();
 				health_indicator.text = "";
+				yield(get_tree().create_timer(2), "timeout");
+				get_parent().get_node("CharBody/Neck/Camera/GameComplete").visible = true;
+				yield(get_tree().create_timer(2), "timeout");
+				get_tree().quit();
 func stop_moving(delta):
 	pass
 	
