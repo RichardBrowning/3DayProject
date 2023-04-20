@@ -47,6 +47,7 @@ func _process(delta):
 			var collision = move_and_collide(dir * MOVE_SPEED * delta, infinite_initia);
 			if (translation.distance_to(target_position)) < 1:
 				get_parent().get_node("CharBody/Neck/Camera/GameOver").visible = true;
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				get_parent().get_node("CharBody").game_over = true;
 			if collision:
 				if collision.collider is Tripper:

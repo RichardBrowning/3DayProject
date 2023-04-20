@@ -1,13 +1,8 @@
 extends Spatial
-
-onready var ghost = null;
-onready var dest = null;
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-onready var dooropen_animation = get_node("elevator/AnimationPlayer")
-
-var game_started = false;
+onready var game_over = $CharBody/Neck/Camera/GameOver
+onready var game_passed = $CharBody/Neck/Camera/GameComplete
+onready var main_screen = $CharBody/Neck/Camera/MainScreen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,13 +10,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	# display the splash
-	
-	# if entered
-	
-	# if game started 
-		# if esc
 	pass
+	#change the resolution of the windows
+	main_screen.set_size( OS.get_real_window_size() );
+	game_passed.set_size( OS.get_real_window_size() );
+	game_over.set_size( OS.get_real_window_size() );
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -57,7 +57,7 @@ func _physics_process(delta):
 		weapon_mesh.visible = true; 
 	if !is_on_floor():
 		velocity.y += GRAVITY;
-	if Input.is_action_just_pressed("ui_accept") && is_on_floor():
+	if Input.is_action_just_pressed("ui_jump") && is_on_floor():
 		velocity.y = JUMP_VELOCITY;
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if has_weapon && weapon_ready && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
